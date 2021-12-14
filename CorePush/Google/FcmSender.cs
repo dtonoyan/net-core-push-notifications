@@ -1,6 +1,5 @@
 using CorePush.Interfaces;
 using CorePush.Utils;
-using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
@@ -23,23 +22,23 @@ namespace CorePush.Google
             this.http = http;
         }
 
-        /// <summary>
-        /// Send firebase notification.
-        /// Please check out payload formats:
-        /// https://firebase.google.com/docs/cloud-messaging/concept-options#notifications
-        /// The SendAsync method will add/replace "to" value with deviceId
-        /// </summary>
-        /// <param name="deviceId">Device token (will add `to` to the payload)</param>
-        /// <param name="payload">Notification payload that will be serialized using Newtonsoft.Json package</param>
-        /// <cref="HttpRequestException">Throws exception when not successful</exception>
-        public Task<FcmResponse> SendAsync(string deviceId, object payload, CancellationToken cancellationToken = default)
-        {
-            var jsonObject = JObject.FromObject(payload);
-            jsonObject.Remove("to");
-            jsonObject.Add("to", JToken.FromObject(deviceId));
+        ///// <summary>
+        ///// Send firebase notification.
+        ///// Please check out payload formats:
+        ///// https://firebase.google.com/docs/cloud-messaging/concept-options#notifications
+        ///// The SendAsync method will add/replace "to" value with deviceId
+        ///// </summary>
+        ///// <param name="deviceId">Device token (will add `to` to the payload)</param>
+        ///// <param name="payload">Notification payload that will be serialized using Newtonsoft.Json package</param>
+        ///// <cref="HttpRequestException">Throws exception when not successful</exception>
+        //public Task<FcmResponse> SendAsync(string deviceId, object payload, CancellationToken cancellationToken = default)
+        //{
+        //    var jsonObject = JObject.FromObject(payload);
+        //    jsonObject.Remove("to");
+        //    jsonObject.Add("to", JToken.FromObject(deviceId));
 
-            return SendAsync(jsonObject, cancellationToken);
-        }
+        //    return SendAsync(jsonObject, cancellationToken);
+        //}
 
         /// <summary>
         /// Send firebase notification.

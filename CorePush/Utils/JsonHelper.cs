@@ -1,24 +1,23 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+﻿using System.Text.Json;
 
 namespace CorePush.Utils
 {
     public static class JsonHelper
     {
-        private static readonly JsonSerializerSettings settings = new JsonSerializerSettings
-        {
-            ContractResolver = new CamelCasePropertyNamesContractResolver(),
-            NullValueHandling = NullValueHandling.Ignore,
-        };
+        //private static readonly JsonSerializerSettings settings = new JsonSerializerSettings
+        //{
+        //    ContractResolver = new CamelCasePropertyNamesContractResolver(),
+        //    NullValueHandling = NullValueHandling.Ignore,
+        //};
 
         public static string Serialize(object obj)
         {
-            return JsonConvert.SerializeObject(obj, settings);
+            return JsonSerializer.Serialize(obj);//, settings);
         }
 
         public static TObject Deserialize<TObject>(string json)
         {
-            return JsonConvert.DeserializeObject<TObject>(json, settings);
+            return JsonSerializer.Deserialize<TObject>(json);
         }
     }
 }

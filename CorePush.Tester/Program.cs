@@ -58,21 +58,21 @@ namespace CorePush.Tester
             }
         }
 
-        private static async Task SendFcmNotificationAsync()
-        {
-            var settings = new FcmSettings
-            {
-                SenderId = fcmSenderId,
-                ServerKey = fcmServerKey
-            };
+        //private static async Task SendFcmNotificationAsync()
+        //{
+        //    var settings = new FcmSettings
+        //    {
+        //        SenderId = fcmSenderId,
+        //        ServerKey = fcmServerKey
+        //    };
 
-            var fcm = new FcmSender(settings, http);
-            var payload = new 
-            {
-                notification = new { body = "Hello World!" }
-            };
+        //    var fcm = new FcmSender(settings, http);
+        //    var payload = new 
+        //    {
+        //        notification = new { body = "Hello World!" }
+        //    };
 
-            var response = await fcm.SendAsync(fcmReceiverToken, payload);
-        }
+        //    var response = await fcm.SendAsync(fcmReceiverToken, payload);
+        //}
     }
 }

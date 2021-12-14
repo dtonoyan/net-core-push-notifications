@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net5</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
     <Title>Server Side library for sending ✅Web, ✅Android and ✅iOS Push Notifications</Title>
@@ -53,15 +53,14 @@ v3.0.0
     </PackageReleaseNotes>
     
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Portable.BouncyCastle" Version="1.8.9" />
-  </ItemGroup>
   
   <ItemGroup>
     <None Include="..\Icon.png" Pack="true" PackagePath="Icon.png" />
     <None Include="..\README.md" Pack="true" PackagePath="README.md" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Portable.BouncyCastle" Version="1.9.0" />
   </ItemGroup>
 
 </Project>
